@@ -1,0 +1,23 @@
+# Personal info: profile, answers, resume
+config.yaml
+*.pdf
+*.docx
+
+# Run state and generated reports (contain drafted answers and personal details)
+state.db
+state.db.*
+REVIEW.md
+MANUAL.md
+screenshots/
+logs/
+.lock
+
+# Chrome profile used for applying (cookies, logins)
+browser_profile/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+.DS_Store

@@ -1,0 +1,76 @@
+# Copy to config.yaml and fill in.
+
+# GitHub repos that list postings ("owner/repo" or a full URL).
+repos:
+  - SimplifyJobs/Summer2027-Internships
+  # - vanshb03/Summer2027-Internships
+
+resume_pdf: ~/Documents/resume.pdf
+# cover_letter_pdf: ~/Documents/cover_letter.pdf   # only used when a form asks for a cover letter file
+# resume_text_file: ~/Documents/resume.md          # optional: plain-text resume for the drafter if PDF text extraction is poor
+
+# Leave true until you've checked a few runs: forms are filled and screenshotted
+# (screenshots/) but never submitted. Flip to false to really apply.
+dry_run: true
+
+max_applications_per_run: 20
+schedule_hours: [9, 17]   # used by `autoapply.py install-schedule`
+headless: false           # a visible Chrome passes CAPTCHA checks noticeably more often
+llm_backend: auto         # auto | cli (your `claude` login) | api (ANTHROPIC_API_KEY)
+
+filters:
+  max_age_days: 7          # ignore postings older than this (stops it applying to the whole backlog)
+  title_include: []        # regexes; empty = everything. e.g. ["software", "machine learning", "data"]
+  title_exclude: ["\\bPhD\\b", "Master'?s", "\\bMS\\b", "\\bM\\.S\\.", "\\bMBA\\b"]
+  company_exclude: []
+  categories: []           # Simplify categories, e.g. ["Software Engineering", "AI/ML/Data", "Quant"]
+  terms: []                # e.g. ["Summer 2027", "Fall 2026"]
+  locations_include: []    # substrings, e.g. ["Toronto", "Remote", "NY", "CA"]
+  sponsorship_exclude: []  # e.g. ["U.S. Citizenship is Required", "Does Not Offer Sponsorship"]
+
+# Everything the drafter is allowed to say about you. Anything not here or in your
+# resume gets flagged for review instead of guessed.
+profile:
+  first_name: YOUR_FIRST_NAME
+  last_name: YOUR_LAST_NAME
+  preferred_name: ""
+  email: YOUR_EMAIL
+  phone: YOUR_PHONE
+  location: "City, Province/State, Country"
+  street_address: ""
+  city: ""
+  state_or_province: ""
+  postal_code: ""
+  country: ""
+  linkedin: ""
+  github: ""
+  website: ""
+  school: ""
+  degree: "Bachelor's"
+  major: ""
+  gpa: ""
+  graduation_date: "YYYY-MM"
+  current_year_of_study: ""        # e.g. "3rd year" / "Junior"
+  current_employer: ""
+  # Plain-language answers to the screening questions that show up everywhere.
+  # Be explicit: this is what stops those questions from being flagged every time.
+  facts: |
+    - Work authorization: ...
+    - Will I need visa sponsorship for US roles: ...
+    - At least 18 years old: yes
+    - Relatives working at the company: none
+    - Previously worked at the company: no (unless my resume says otherwise)
+    - Signed a non-compete: no
+    - Salary expectations: open / market rate for the role
+    - Willing to relocate: yes
+    - Available terms: ...
+    - How I heard about the role: online job board
+
+# Demographic questions: "decline" picks the prefer-not-to-say option.
+eeo:
+  gender: decline
+  race: decline
+  hispanic_latino: decline
+  veteran: decline
+  disability: decline
+  pronouns: decline
